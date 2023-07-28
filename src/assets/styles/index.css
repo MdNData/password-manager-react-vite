@@ -66,6 +66,7 @@ main {
   padding: 15px;
   border-radius: 8px;
   color: white;
+  box-sizing: border-box;
 }
 .password-display-container article .identifier {
   display: grid;
@@ -125,6 +126,81 @@ main {
   color: white;
 }
 
+.password-container-placeholder {
+  padding: 20px;
+}
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -800px 0;
+  }
+  100% {
+    background-position: 800px 0;
+  }
+}
+.password-container-placeholder .animated-background {
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background-color: #0e1326;
+  background: linear-gradient(to right, #0e1326 8%, #323956 28%, #0e1326 43%);
+  background-size: 800px 104px;
+  position: relative;
+}
+.password-container-placeholder article {
+  background-color: #0e1326;
+  min-width: 300px;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 8px;
+  color: white;
+}
+.password-container-placeholder article .identifier {
+  display: grid;
+  align-items: center;
+  margin-bottom: 20px;
+  grid-template-columns: 65px 1fr;
+}
+.password-container-placeholder article .identifier img {
+  width: 45px;
+  height: 45px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 2px;
+  margin-right: 15px;
+}
+.password-container-placeholder article .identifier p {
+  display: inline-block;
+  font-size: 20px;
+  font-family: Montserrat;
+}
+.password-container-placeholder article .data-container {
+  border-top: 1px solid rgba(255, 255, 255, 0.403);
+  margin-bottom: 5px;
+}
+.password-container-placeholder article .data-container p {
+  font-family: Montserrat;
+  font-size: 20px;
+  margin: 20px 0 0 0;
+}
+.password-container-placeholder article input {
+  display: block;
+  text-align: center;
+  margin: auto;
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  width: 95%;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  font-family: Montserrat;
+  font-size: 22px;
+  border-radius: 12px;
+  font-weight: 900;
+}
+
 .nav-login-btn a {
   display: block;
   width: 24px;
@@ -149,6 +225,61 @@ main {
 .btn-menu-container button i {
   color: #eff0f2;
   font-size: 30px;
+}
+
+.error-pop-up {
+  display: flex;
+  position: fixed;
+  z-index: 99;
+  background-color: rgba(255, 255, 255, 0);
+  width: 100%;
+  height: 100%;
+  top: 0px;
+}
+.error-pop-up .internal-pop-up-container {
+  background-color: #1c2541;
+  display: block;
+  width: 300px;
+  margin: auto;
+  box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.366);
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+.error-pop-up .internal-pop-up-container img {
+  width: 90%;
+  display: block;
+  margin: auto;
+  margin-top: 15px;
+  border-radius: 15px;
+}
+.error-pop-up .internal-pop-up-container h3,
+.error-pop-up .internal-pop-up-container p {
+  color: white;
+  text-align: center;
+}
+.error-pop-up .internal-pop-up-container h3 {
+  font-size: 40px;
+  font-family: Montserrat;
+  margin-top: 20px;
+}
+.error-pop-up .internal-pop-up-container p {
+  font-family: Montserrat;
+  margin: 20px 10px;
+}
+.error-pop-up .internal-pop-up-container button {
+  display: block;
+  margin: 25px auto 30px auto;
+  padding: 5px 15px;
+  font-family: Montserrat;
+  font-size: 25px;
+  font-weight: 600;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.545);
+}
+.error-pop-up .internal-pop-up-container button:hover {
+  background-color: darkblue;
+  color: white;
+  cursor: pointer;
 }
 
 footer {
