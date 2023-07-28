@@ -15,9 +15,13 @@ export const PasswordDisplay = () => {
         const response = await fetch(urlAll);
         let entryList = await response.json();
         entryList.reverse();
-        setEntryData(entryList);
+        if (response.ok) {
+          setEntryData(entryList);
+        } else {
+          setEntryData("error");
+        }
       } catch (error) {
-        setEntryData("errore");
+        setEntryData("error");
       }
     };
     fetchEntries();
@@ -29,8 +33,8 @@ export const PasswordDisplay = () => {
   }
 
   //if there is an error with the connection
-  if (entryData === "errore") {
-    return <ErrorPopUp message="Connection error, please try again later." />;
+  if (entryData === "error") {
+    return <ErrorPopUp />;
   }
 
   //if the data are loaded correctly
