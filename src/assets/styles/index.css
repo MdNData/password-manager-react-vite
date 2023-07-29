@@ -70,7 +70,6 @@ main {
 .password-display-container article .identifier {
   display: grid;
   align-items: center;
-  margin-bottom: 20px;
   grid-template-columns: 65px 1fr;
 }
 .password-display-container article .identifier img {
@@ -85,9 +84,26 @@ main {
   font-size: 20px;
   font-family: Montserrat;
 }
+.password-display-container article .identifier button {
+  background-color: rgba(14, 19, 38, 0);
+  color: white;
+  margin: auto;
+  display: inline-block;
+  width: 110px;
+  text-align: left;
+  margin-top: 10px;
+}
+.password-display-container article .identifier button i {
+  transform: rotate(0deg);
+  transition: 200ms all linear;
+}
+.password-display-container article .identifier button i.open {
+  transform: rotate(-180deg);
+}
 .password-display-container article .data-container {
   border-top: 1px solid rgba(255, 255, 255, 0.403);
   margin-bottom: 5px;
+  margin-top: 10px;
 }
 .password-display-container article .data-container p {
   font-family: Montserrat;
