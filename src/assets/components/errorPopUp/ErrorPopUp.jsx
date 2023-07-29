@@ -5,14 +5,10 @@ export const ErrorPopUp = ({ message }) => {
       <div className="internal-pop-up-container">
         <img src={ConnectionErrorImage} alt="" />
         <h3>Oooopsy!</h3>
-        {message ? (
-          <p>{message}</p>
-        ) : (
-          <p>
-            The connection is in its lunch break, try to reload the page, if the
-            problem persists, try again later.
-          </p>
-        )}
+        <p>
+          {message ||
+            "The connection is in its lunch break, try to reload the page, if the problem persists, try again later."}
+        </p>
 
         <button
           onClick={() => {
