@@ -89,25 +89,38 @@ main {
   color: white;
   margin: auto;
   display: inline-block;
-  width: 110px;
+  width: 120px;
   text-align: left;
   margin-top: 10px;
+  cursor: initial;
 }
 .password-display-container article .identifier button i {
   transform: rotate(0deg);
   transition: 200ms all linear;
+  padding: 5px;
+  cursor: pointer;
+}
+.password-display-container article .identifier button i:hover {
+  background-color: rgba(255, 255, 255, 0.232);
+  border-radius: 50%;
 }
 .password-display-container article .identifier button i.open {
   transform: rotate(-180deg);
 }
 .password-display-container article .data-container {
-  border-top: 1px solid rgba(255, 255, 255, 0.403);
+  height: 0;
+  overflow: hidden;
+  transition: 200ms all linear;
+}
+.password-display-container article .data-container.view {
+  height: 180px;
   margin-bottom: 5px;
-  margin-top: 10px;
 }
 .password-display-container article .data-container p {
   font-family: Montserrat;
   font-size: 20px;
+}
+.password-display-container article .data-container p:nth-child(2) {
   margin: 20px 0 0 0;
 }
 .password-display-container article input {
@@ -125,6 +138,9 @@ main {
   border-radius: 12px;
   font-weight: 900;
 }
+.password-display-container article input:disabled {
+  color: black;
+}
 .password-display-container button {
   display: block;
   margin: 20px auto 0 auto;
@@ -139,6 +155,34 @@ main {
 .password-display-container button:hover {
   background-color: #6174be;
   color: white;
+}
+.password-display-container .buttons-container-password {
+  display: flex;
+  justify-content: end;
+  gap: 15px;
+}
+.password-display-container .buttons-container-password .button {
+  display: flex;
+  margin: 5px 0 5px 0;
+  justify-content: end;
+}
+.password-display-container .buttons-container-password .button div span {
+  display: inline-block;
+  background-color: white;
+  color: #0e1326;
+  padding: 10px;
+  border-radius: 30px;
+  font-family: Montserrat;
+  font-weight: 900;
+  cursor: pointer;
+}
+.password-display-container .buttons-container-password .button div span:hover {
+  background-color: #0e1326;
+  color: white;
+}
+.password-display-container .buttons-container-password .button div span i {
+  font-size: 17px;
+  padding: 0 2px;
 }
 
 .password-container-placeholder {
@@ -201,6 +245,130 @@ main {
   margin: 20px 0 0 0;
 }
 .password-container-placeholder article input {
+  display: block;
+  text-align: center;
+  margin: auto;
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  width: 95%;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  font-family: Montserrat;
+  font-size: 22px;
+  border-radius: 12px;
+  font-weight: 900;
+}
+
+article.newPasswordHidden {
+  background-color: #0e1326;
+  min-width: 300px;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0;
+  border-radius: 8px;
+  color: white;
+  height: 0;
+  overflow: hidden;
+  transition: all 200ms linear;
+}
+article.newPasswordHidden .identifier {
+  display: grid;
+  align-items: center;
+  margin-bottom: 20px;
+  grid-template-columns: 65px 1fr;
+}
+article.newPasswordHidden .identifier img {
+  width: 45px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 2px;
+  margin-right: 15px;
+}
+article.newPasswordHidden .identifier p {
+  display: inline-block;
+  font-size: 20px;
+  font-family: Montserrat;
+}
+article.newPasswordHidden .data-container {
+  border-top: 1px solid rgba(255, 255, 255, 0.403);
+  margin-bottom: 5px;
+}
+article.newPasswordHidden .data-container p {
+  font-family: Montserrat;
+  font-size: 20px;
+  margin: 20px 0 0 0;
+}
+article.newPasswordHidden input {
+  display: block;
+  text-align: center;
+  margin: auto;
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  width: 95%;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  font-family: Montserrat;
+  font-size: 22px;
+  border-radius: 12px;
+  font-weight: 900;
+}
+
+.newPasswordVisible {
+  background-color: #0e1326;
+  min-width: 300px;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 8px;
+  color: white;
+  height: 450px;
+  transition: all 200ms linear;
+}
+.newPasswordVisible .identifier {
+  display: grid;
+  align-items: center;
+  margin-bottom: 20px;
+  grid-template-columns: 65px 1fr;
+}
+.newPasswordVisible .identifier img {
+  width: 45px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 2px;
+  margin-right: 15px;
+}
+.newPasswordVisible .identifier p {
+  display: inline-block;
+  font-size: 20px;
+  font-family: Montserrat;
+}
+.newPasswordVisible .data-container {
+  border-top: 1px solid rgba(255, 255, 255, 0.403);
+  margin-bottom: 5px;
+}
+.newPasswordVisible .data-container p {
+  font-family: Montserrat;
+  font-size: 20px;
+  margin: 20px 0 0 0;
+}
+.newPasswordVisible .data-container div button {
+  display: block;
+  margin: 20px auto;
+  padding: 5px 10px;
+  font-size: 25px;
+  font-weight: 900;
+  font-family: Montserrat;
+  border-radius: 12px;
+  cursor: pointer;
+  background-color: white;
+}
+.newPasswordVisible .data-container div button:hover {
+  background-color: #6174be;
+  color: white;
+}
+.newPasswordVisible input {
   display: block;
   text-align: center;
   margin: auto;
