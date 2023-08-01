@@ -9,15 +9,14 @@ export const PasswordItem = ({ entry }) => {
         <img src={imgsrc} alt="" />
         <p>
           Usage :
-          <input type="text" defaultValue={site} />
+          <input type="text" defaultValue={site} disabled />
         </p>
         <div></div>
-        <button
-          onClick={() => {
-            displayIt ? setDisplayIt(false) : setDisplayIt(true);
-          }}
-        >
+        <button>
           <i
+            onClick={() => {
+              setDisplayIt(!displayIt);
+            }}
             className={
               displayIt
                 ? "open fa-solid fa-chevron-down"
@@ -26,18 +25,16 @@ export const PasswordItem = ({ entry }) => {
           ></i>
         </button>
       </div>
-      {displayIt && (
-        <div className="data-container">
-          <p>
-            User :
-            <input type="text" defaultValue={user} />
-          </p>
-          <p>
-            Password :
-            <input type="text" defaultValue={pass} />
-          </p>
-        </div>
-      )}
+      <div className={displayIt ? "data-container view" : "data-container"}>
+        <p>
+          User :
+          <input type="text" defaultValue={user} disabled />
+        </p>
+        <p>
+          Password :
+          <input type="text" defaultValue={pass} disabled />
+        </p>
+      </div>
     </article>
   );
 };
