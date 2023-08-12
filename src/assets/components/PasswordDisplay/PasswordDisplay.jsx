@@ -23,7 +23,7 @@ export const PasswordDisplay = () => {
   };
 
   useEffect(() => {
-    //get all Pass
+    //get all Entries
     fetchEntries(setEntryData);
   }, []);
 

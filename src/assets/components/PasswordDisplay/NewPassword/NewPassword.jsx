@@ -3,7 +3,10 @@ export const NewPassword = ({className}) => {
   return (
     <article className={className}>
       <div className="identifier">
-        <img src="" alt="" />
+        <img
+          src="https://mdndata.github.io/password-manager/static/media/logo.b8ce593d759382a06a27.png"
+          alt=""
+        />
         <p style={{ marginBottom: "20px" }}>
           Image Link :
           <input type="text" />
