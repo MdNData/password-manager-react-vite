@@ -315,7 +315,7 @@ article.newPasswordHidden input {
   font-weight: 900;
 }
 
-.newPasswordVisible {
+article.newPasswordVisible {
   background-color: #0e1326;
   min-width: 300px;
   max-width: 500px;
@@ -323,37 +323,38 @@ article.newPasswordHidden input {
   padding: 15px;
   border-radius: 8px;
   color: white;
-  height: 450px;
+  height: 485px;
   transition: all 200ms linear;
 }
-.newPasswordVisible .identifier {
+article.newPasswordVisible .identifier {
   display: grid;
   align-items: center;
   margin-bottom: 20px;
   grid-template-columns: 65px 1fr;
 }
-.newPasswordVisible .identifier img {
+article.newPasswordVisible .identifier img {
   width: 45px;
   background-color: white;
   border-radius: 50%;
   padding: 2px;
   margin-right: 15px;
 }
-.newPasswordVisible .identifier p {
+article.newPasswordVisible .identifier p {
   display: inline-block;
   font-size: 20px;
   font-family: Montserrat;
 }
-.newPasswordVisible .data-container {
+article.newPasswordVisible .data-container {
   border-top: 1px solid rgba(255, 255, 255, 0.403);
   margin-bottom: 5px;
+  height: 260px !important;
 }
-.newPasswordVisible .data-container p {
+article.newPasswordVisible .data-container p {
   font-family: Montserrat;
   font-size: 20px;
   margin: 20px 0 0 0;
 }
-.newPasswordVisible .data-container div button {
+article.newPasswordVisible .data-container div button {
   display: block;
   margin: 20px auto;
   padding: 5px 10px;
@@ -364,11 +365,11 @@ article.newPasswordHidden input {
   cursor: pointer;
   background-color: white;
 }
-.newPasswordVisible .data-container div button:hover {
+article.newPasswordVisible .data-container div button:hover {
   background-color: #6174be;
   color: white;
 }
-.newPasswordVisible input {
+article.newPasswordVisible input {
   display: block;
   text-align: center;
   margin: auto;

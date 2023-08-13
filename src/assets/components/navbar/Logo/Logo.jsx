@@ -3,7 +3,7 @@ import { dataLogo } from "../../Logo/dataLogo";
 export const Logo = () => {
   return (
     <div className="nav-logo">
-      <a href="password-manager-react-vite/">
+      <a href="/password-manager-react-vite/">
         <img src={dataLogo.logo} alt={dataLogo.logoDescription} />
         {
           //check if the with is enought to visualize the entire name or only the shorter one
