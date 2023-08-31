@@ -12,7 +12,7 @@ export const NewPassword = ({ className }) => {
 
   const [pass, setPass] = useState("Password");
 
-  const prepareToSend = (e) => {
+  const handleSubmit = (e) => {
     e ? e.preventDefault() : "";
     const newEntryData = {
       email: "test",
@@ -27,7 +27,7 @@ export const NewPassword = ({ className }) => {
 
   return (
     <article className={className}>
-      <form onSubmit={prepareToSend}>
+      <form onSubmit={handleSubmit}>
         <div className="identifier">
           <img src={imgLink} alt="" />
           <p style={{ marginBottom: "20px" }}>
