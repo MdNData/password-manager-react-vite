@@ -406,7 +406,7 @@ article.newPasswordVisible input {
   border-style: none;
   cursor: pointer;
 }
-.btn-menu-container button i {
+.btn-menu-container button svg {
   color: #eff0f2;
   font-size: 30px;
 }
