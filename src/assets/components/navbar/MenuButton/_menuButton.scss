@@ -1,14 +1,5 @@
 .btn-menu-container {
   padding: 6px 15px 0 0;
+  cursor: pointer;
 
-  button {
-    background-color: rgba(255, 255, 255, 0);
-    border-style: none;
-    cursor: pointer;
-
-    svg {
-      color: #eff0f2;
-      font-size: 30px;
-    }
-  }
 }

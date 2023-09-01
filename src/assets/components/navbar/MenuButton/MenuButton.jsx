@@ -37,11 +37,9 @@ const MenuButton = ({
 
   return (
     <div
-      className="menu-button"
+      className="btn-menu-container"
       style={{
         width: containerWidth + "px",
-        cursor: "pointer",
-        margin: "0 15px 0 0",
       }}
       onClick={() => {
         setPosition(!position);
