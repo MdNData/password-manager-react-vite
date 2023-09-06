@@ -425,7 +425,7 @@ article.newPasswordVisible input {
   border-bottom-right-radius: 13px;
 }
 .nav-menu-list ul {
-  padding: 1px 15px;
+  padding: 10px 15px 20px 15px;
   list-style: none;
   text-align: center;
   font-size: 28px;

@@ -7,7 +7,7 @@ export const links = [
   {
     id: 2,
     name: "Login",
-    link: "/password-manager-react-vite/login",
+    link: "/password-manager-react-vite/",
   },
   {
     id: 3,
