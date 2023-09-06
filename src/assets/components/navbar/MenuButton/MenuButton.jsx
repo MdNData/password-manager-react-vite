@@ -7,6 +7,8 @@ const MenuButton = ({
   barBorderRadius = "13px",
   barMargins = "6px 0 6px 0px",
   barTransition = "200ms all linear",
+  menuState,
+  setMenuState,
 }) => {
   const [position, setPosition] = useState(false);
 
@@ -43,6 +45,7 @@ const MenuButton = ({
       }}
       onClick={() => {
         setPosition(!position);
+        setMenuState(!menuState);
       }}
     >
       <span

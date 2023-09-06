@@ -1,15 +1,23 @@
 nav {
-  display: flex;
+  display: block;
   position: fixed;
-  height: 64px;
   width: 100%;
-  align-items: center;
-  justify-content: space-between;
   background-color: rgba(12, 13, 22, 0.7450980392);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
-  box-shadow: 1px 0px 4px #0c0d16;
+  box-shadow: 1px 0px 10px #0c0d16;
   z-index: 50;
+  flex-wrap: wrap;
+  border-bottom-left-radius: 13px;
+  border-bottom-right-radius: 13px;
+
+  div.nav-upper-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 64px;
+  }
 
   div.nav-logo {
     a {
@@ -34,7 +42,7 @@ nav {
         font-family: Lobster, cursive;
         font-weight: 100;
         font-size: 30px;
-        @media(max-width: 426px) {
+        @media (max-width: 426px) {
           font-size: 25px;
         }
       }

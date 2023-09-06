@@ -10,17 +10,24 @@ body {
 }
 
 nav {
-  display: flex;
+  display: block;
   position: fixed;
-  height: 64px;
   width: 100%;
-  align-items: center;
-  justify-content: space-between;
   background-color: rgba(12, 13, 22, 0.7450980392);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
-  box-shadow: 1px 0px 4px #0c0d16;
+  box-shadow: 1px 0px 10px #0c0d16;
   z-index: 50;
+  flex-wrap: wrap;
+  border-bottom-left-radius: 13px;
+  border-bottom-right-radius: 13px;
+}
+nav div.nav-upper-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
 }
 nav div.nav-logo a {
   display: flex;
@@ -402,6 +409,39 @@ article.newPasswordVisible input {
 .btn-menu-container {
   padding: 6px 15px 0 0;
   cursor: pointer;
+}
+
+.nav-menu-list {
+  display: block;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 49;
+  height: 0;
+  overflow: hidden;
+  transition: 200ms all ease-out;
+  background-color: rgba(12, 13, 22, 0.2392156863);
+  border-bottom-left-radius: 13px;
+  border-bottom-right-radius: 13px;
+}
+.nav-menu-list ul {
+  padding: 1px 15px;
+  list-style: none;
+  text-align: center;
+  font-size: 28px;
+}
+.nav-menu-list ul li {
+  margin: 20px 0;
+}
+.nav-menu-list ul li a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  font-family: "Montserrat";
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.193);
+  min-width: 55vw;
 }
 
 .error-pop-up {

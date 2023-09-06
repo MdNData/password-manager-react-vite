@@ -1,0 +1,35 @@
+.nav-menu-list {
+  display: block;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 49;
+  height: 0;
+  overflow: hidden;
+  transition: 200ms all ease-out;
+  background-color: #0c0d163d;
+  border-bottom-left-radius: 13px;
+  border-bottom-right-radius: 13px;
+
+  ul {
+    padding: 1px 15px;
+    list-style: none;
+    text-align: center;
+    font-size: 28px;
+
+    li {
+      margin: 20px 0;
+
+      a {
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        font-family: "Montserrat";
+        font-weight: 600;
+        letter-spacing: 1px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.193);
+        min-width: 55vw;
+      }
+    }
+  }
+}
