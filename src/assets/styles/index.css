@@ -62,6 +62,81 @@ main {
   padding-top: 65px;
 }
 
+.password-saving {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(22, 30, 55, 0.974);
+  border-radius: 8px;
+  box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.303);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.password-saving div.saving-internal {
+  text-align: center;
+}
+.password-saving div.saving-internal p {
+  font-family: Montserrat;
+  font-size: 25px;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.password-saving div.saving-internal .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.password-saving div.saving-internal .wave {
+  width: 12px;
+  height: 30px;
+  background: linear-gradient(45deg, rgb(0, 149, 255), #fff);
+  margin: 0px;
+  animation: wave 1000ms linear infinite;
+  border-radius: 20px;
+}
+.password-saving div.saving-internal .wave:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.password-saving div.saving-internal .wave:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.password-saving div.saving-internal .wave:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.password-saving div.saving-internal .wave:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.password-saving div.saving-internal .wave:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.password-saving div.saving-internal .wave:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.password-saving div.saving-internal .wave:nth-child(8) {
+  animation-delay: 0.7s;
+}
+.password-saving div.saving-internal .wave:nth-child(9) {
+  animation-delay: 0.8s;
+}
+.password-saving div.saving-internal .wave:nth-child(10) {
+  animation-delay: 0.9s;
+}
+@keyframes wave {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
 .password-display-container {
   padding: 20px;
 }
@@ -216,7 +291,6 @@ main {
 }
 .password-container-placeholder article {
   background-color: #0e1326;
-  min-width: 300px;
   max-width: 500px;
   margin: 20px auto;
   padding: 15px;
@@ -269,7 +343,6 @@ main {
 
 article.newPasswordHidden {
   background-color: #0e1326;
-  min-width: 300px;
   max-width: 500px;
   margin: 0 auto;
   padding: 0;
@@ -324,7 +397,6 @@ article.newPasswordHidden input {
 
 article.newPasswordVisible {
   background-color: #0e1326;
-  min-width: 300px;
   max-width: 500px;
   margin: 20px auto;
   padding: 15px;
@@ -332,6 +404,7 @@ article.newPasswordVisible {
   color: white;
   height: 485px;
   transition: all 200ms linear;
+  position: relative;
 }
 article.newPasswordVisible .identifier {
   display: grid;

@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { newEntry } from "../../../data/NewEntry";
+import Saving from "../Saving/Saving";
 
 export const NewPassword = ({ className }) => {
+
+  //Data to send 
   const [imgLink, setImgLink] = useState(
     "https://mdndata.github.io/password-manager/static/media/logo.b8ce593d759382a06a27.png"
   );
@@ -12,17 +15,34 @@ export const NewPassword = ({ className }) => {
 
   const [pass, setPass] = useState("Password");
 
+  //check saving
+  const [disableInput, setDisableInput] = useState(false);
+
+  const [saving, setSaving] = useState(false);
+
+  
+
   const handleSubmit = (e) => {
     e ? e.preventDefault() : "";
-    const newEntryData = {
-      email: "test",
-      imgsrc: imgLink,
-      site,
-      user: email,
-      pass,
-    };
 
-    newEntry(newEntryData);
+    {
+      /* Saving  */
+    }
+    if (saving) {
+      return;
+    } else {
+      setDisableInput(true);
+      setSaving(true);
+      const newEntryData = {
+        email: "test",
+        imgsrc: imgLink,
+        site,
+        user: email,
+        pass,
+      };
+
+      newEntry(newEntryData);
+    }
   };
 
   return (
@@ -33,6 +53,7 @@ export const NewPassword = ({ className }) => {
           <p style={{ marginBottom: "20px" }}>
             Image Link :
             <input
+              disabled={disableInput}
               type="text"
               placeholder={imgLink}
               onChange={(e) => {
@@ -44,6 +65,7 @@ export const NewPassword = ({ className }) => {
           <p>
             Usage:
             <input
+              disabled={disableInput}
               type="text"
               placeholder={site}
               onChange={(e) => {
@@ -56,6 +78,7 @@ export const NewPassword = ({ className }) => {
           <p>
             User :
             <input
+              disabled={disableInput}
               type="text"
               placeholder={email}
               onChange={(e) => {
@@ -66,6 +89,7 @@ export const NewPassword = ({ className }) => {
           <p>
             Password :
             <input
+              disabled={disableInput}
               type="text"
               placeholder={pass}
               onChange={(e) => {
@@ -78,6 +102,7 @@ export const NewPassword = ({ className }) => {
           </div>
         </div>
       </form>
+      {saving ? <Saving /> : ""}
     </article>
   );
 };
