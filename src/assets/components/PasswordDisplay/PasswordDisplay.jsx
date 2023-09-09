@@ -58,12 +58,7 @@ export const PasswordDisplay = () => {
       </div>
 
       {/* NEW PASSWORD FORM */}
-      <NewPassword
-        className={classNewPass}
-        setEntryData={setEntryData}
-        setClassNewPass={setClassNewPass}
-        setAddNewButton={setAddNewButton}
-      />
+      <NewPassword className={classNewPass} />
 
       {/* PASSWORDS LIST */}
       {entryData.map((entry) => {

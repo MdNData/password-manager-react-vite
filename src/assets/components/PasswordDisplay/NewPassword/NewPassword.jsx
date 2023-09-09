@@ -3,12 +3,7 @@ import { newEntry } from "../../../data/NewEntry";
 import Saving from "../Saving/Saving";
 import Success from "../Success/Success";
 
-export const NewPassword = ({
-  className,
-  setEntryData,
-  setClassNewPass,
-  setAddNewButton,
-}) => {
+export const NewPassword = ({ className }) => {
   //Data to send
   const [imgLink, setImgLink] = useState(
     "https://mdndata.github.io/password-manager/static/media/logo.b8ce593d759382a06a27.png"
@@ -29,6 +24,13 @@ export const NewPassword = ({
 
   const [success, setSuccess] = useState(false);
 
+  const clearEntries = () => {
+    setImgLink("");
+    setSite("");
+    setEmail("");
+    setPass("");
+  };
+
   const handleSubmit = (e) => {
     e ? e.preventDefault() : "";
 
@@ -48,15 +50,7 @@ export const NewPassword = ({
         pass,
       };
 
-      newEntry(
-        newEntryData,
-        setSaving,
-        setError,
-        setSuccess,
-        setEntryData,
-        setClassNewPass,
-        setAddNewButton
-      );
+      newEntry(newEntryData, setSaving, setError, setSuccess);
     }
   };
 
