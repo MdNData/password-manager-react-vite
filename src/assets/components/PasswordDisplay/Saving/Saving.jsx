@@ -2,7 +2,7 @@ import savingGif from "../../../imgs/saving.gif";
 const Saving = () => {
   return (
     <div className="password-saving">
-      <div className="saving-internal">
+      <div className="center-internal">
         <p>Saving</p>
         <div className="center">
           <div className="wave"></div>

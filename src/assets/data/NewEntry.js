@@ -1,6 +1,15 @@
 const url = "https://password-manager-api.azurewebsites.net/test/new";
+import { fetchEntries } from "./GetAll";
 
-export const newEntry = async (data) => {
+export const newEntry = async (
+  data,
+  setSaving,
+  setError,
+  setSuccess,
+  setEntryData,
+  setClassNewPass,
+  setAddNewButton
+) => {
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -11,11 +20,23 @@ export const newEntry = async (data) => {
     });
 
     if (response.ok) {
-      console.log("success");
+      setSaving(false);
+      setError(false);
+      setSuccess(true);
+      setTimeout(() => {
+        fetchEntries(setEntryData);
+        setSuccess(false);
+        setClassNewPass("newPasswordHidden");
+        setAddNewButton("+ Add New Entry");
+      }, 2000);
     } else {
-      console.log("error");
+      setSuccess(false);
+      setSaving(false);
+      setError(true);
     }
   } catch (e) {
-    console.log(e);
+    setError(true);
+    setSuccess(false);
+    setSaving(false);
   }
 };

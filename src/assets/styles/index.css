@@ -75,22 +75,22 @@ main {
   justify-content: center;
   align-items: center;
 }
-.password-saving div.saving-internal {
+.password-saving div.center-internal {
   text-align: center;
 }
-.password-saving div.saving-internal p {
+.password-saving div.center-internal p {
   font-family: Montserrat;
   font-size: 25px;
   letter-spacing: 2px;
   text-align: center;
   margin-bottom: 20px;
 }
-.password-saving div.saving-internal .center {
+.password-saving div.center-internal .center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.password-saving div.saving-internal .wave {
+.password-saving div.center-internal .wave {
   width: 12px;
   height: 30px;
   background: linear-gradient(45deg, rgb(0, 149, 255), #fff);
@@ -98,31 +98,31 @@ main {
   animation: wave 1000ms linear infinite;
   border-radius: 20px;
 }
-.password-saving div.saving-internal .wave:nth-child(2) {
+.password-saving div.center-internal .wave:nth-child(2) {
   animation-delay: 0.1s;
 }
-.password-saving div.saving-internal .wave:nth-child(3) {
+.password-saving div.center-internal .wave:nth-child(3) {
   animation-delay: 0.2s;
 }
-.password-saving div.saving-internal .wave:nth-child(4) {
+.password-saving div.center-internal .wave:nth-child(4) {
   animation-delay: 0.3s;
 }
-.password-saving div.saving-internal .wave:nth-child(5) {
+.password-saving div.center-internal .wave:nth-child(5) {
   animation-delay: 0.4s;
 }
-.password-saving div.saving-internal .wave:nth-child(6) {
+.password-saving div.center-internal .wave:nth-child(6) {
   animation-delay: 0.5s;
 }
-.password-saving div.saving-internal .wave:nth-child(7) {
+.password-saving div.center-internal .wave:nth-child(7) {
   animation-delay: 0.6s;
 }
-.password-saving div.saving-internal .wave:nth-child(8) {
+.password-saving div.center-internal .wave:nth-child(8) {
   animation-delay: 0.7s;
 }
-.password-saving div.saving-internal .wave:nth-child(9) {
+.password-saving div.center-internal .wave:nth-child(9) {
   animation-delay: 0.8s;
 }
-.password-saving div.saving-internal .wave:nth-child(10) {
+.password-saving div.center-internal .wave:nth-child(10) {
   animation-delay: 0.9s;
 }
 @keyframes wave {
@@ -135,6 +135,98 @@ main {
   100% {
     transform: scale(0);
   }
+}
+
+.success-new-password {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(22, 30, 55, 0.974);
+  border-radius: 8px;
+  box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.303);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.success-new-password div.center-internal {
+  text-align: center;
+}
+.success-new-password div.center-internal p {
+  font-family: Montserrat;
+  font-size: 25px;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: rgb(33, 220, 33);
+}
+@keyframes scaleAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes drawCircle {
+  0% {
+    stroke-dashoffset: 151px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawCheck {
+  0% {
+    stroke-dashoffset: 36px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.success-new-password div.center-internal #successAnimationCircle {
+  stroke-dasharray: 151px 151px;
+  stroke: #fff;
+}
+.success-new-password div.center-internal #successAnimationCheck {
+  stroke-dasharray: 36px 36px;
+  stroke: #fff;
+}
+.success-new-password div.center-internal #successAnimationResult {
+  fill: rgb(33, 220, 33);
+  opacity: 0;
+}
+.success-new-password div.center-internal #successAnimation.animated {
+  animation: 1s ease-out 0s 1 both scaleAnimation;
+}
+.success-new-password div.center-internal #successAnimation.animated #successAnimationCircle {
+  animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both drawCircle, 0.3s linear 0.9s 1 both fadeOut;
+}
+.success-new-password div.center-internal #successAnimation.animated #successAnimationCheck {
+  animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both drawCheck, 0.3s linear 0.9s 1 both fadeOut;
+}
+.success-new-password div.center-internal #successAnimation.animated #successAnimationResult {
+  animation: 0.3s linear 0.9s both fadeIn;
 }
 
 .password-display-container {

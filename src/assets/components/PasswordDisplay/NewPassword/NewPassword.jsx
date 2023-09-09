@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { newEntry } from "../../../data/NewEntry";
 import Saving from "../Saving/Saving";
+import Success from "../Success/Success";
 
-export const NewPassword = ({ className }) => {
-
-  //Data to send 
+export const NewPassword = ({
+  className,
+  setEntryData,
+  setClassNewPass,
+  setAddNewButton,
+}) => {
+  //Data to send
   const [imgLink, setImgLink] = useState(
     "https://mdndata.github.io/password-manager/static/media/logo.b8ce593d759382a06a27.png"
   );
@@ -20,7 +25,9 @@ export const NewPassword = ({ className }) => {
 
   const [saving, setSaving] = useState(false);
 
-  
+  const [error, setError] = useState(false);
+
+  const [success, setSuccess] = useState(false);
 
   const handleSubmit = (e) => {
     e ? e.preventDefault() : "";
@@ -41,7 +48,15 @@ export const NewPassword = ({ className }) => {
         pass,
       };
 
-      newEntry(newEntryData);
+      newEntry(
+        newEntryData,
+        setSaving,
+        setError,
+        setSuccess,
+        setEntryData,
+        setClassNewPass,
+        setAddNewButton
+      );
     }
   };
 
@@ -102,7 +117,10 @@ export const NewPassword = ({ className }) => {
           </div>
         </div>
       </form>
+
       {saving ? <Saving /> : ""}
+
+      {success ? <Success /> : ""}
     </article>
   );
 };
