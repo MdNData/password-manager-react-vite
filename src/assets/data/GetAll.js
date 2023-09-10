@@ -1,4 +1,5 @@
-const urlAll = "https://password-manager-api.azurewebsites.net/test";
+const urlAll =
+  "https://password-manager-api20230910103433.azurewebsites.net//test";
 
 //get data from api
 export const fetchEntries = async (setEntryData) => {

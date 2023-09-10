@@ -1,5 +1,5 @@
-const url = "https://password-manager-api.azurewebsites.net/test/new";
-import { fetchEntries } from "./GetAll";
+const url =
+  "https://password-manager-api20230910103433.azurewebsites.net//test/new";
 
 export const newEntry = async (data, setSaving, setError, setSuccess) => {
   try {
