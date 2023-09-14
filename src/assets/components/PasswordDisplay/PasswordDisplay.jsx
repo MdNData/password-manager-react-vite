@@ -1,70 +1,54 @@
-import { useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { ErrorPopUp } from "../errorPopUp/ErrorPopUp";
 import { PlaceholderPassword } from "./PasswordPlaceholder/PlaceholderPassword";
 import { PasswordItem } from "./PasswordItem/PasswordItem";
-import { fetchEntries } from "../../data/GetAll";
 import { NewPassword } from "./NewPassword/NewPassword";
+import useGetAll from "../../data/useGetAll";
+import { ToggleNewPassword } from "./NewPassword/toggleNewPassword";
+
+export const PasswordDisplayContext = createContext();
+
+export const usePasswordDisplayContext = () =>
+  useContext(PasswordDisplayContext);
 
 export const PasswordDisplay = () => {
-  //manage the entry data
-  const [entryData, setEntryData] = useState(null);
+  //manage the new password button
   const [classNewPass, setClassNewPass] = useState("newPasswordHidden");
   const [addNewButton, setAddNewButton] = useState("+ Add New Entry");
 
-  //toggle new password field
-  const displayNewPassword = () => {
-    if (classNewPass == "newPasswordHidden") {
-      setClassNewPass("newPasswordVisible");
-      setAddNewButton("Never Mind");
-    } else {
-      setClassNewPass("newPasswordHidden");
-      setAddNewButton("+ Add New Entry");
-    }
-  };
-
-  useEffect(() => {
-    //get all Entries
-    fetchEntries(setEntryData);
-  }, []);
+  //get data from db manager
+  const { isLoading, isError, data } = useGetAll();
 
   //if the entry data are still not loaded from the db
-  if (entryData === null) {
+  if (isLoading) {
     return <PlaceholderPassword text="Loading" />;
   }
 
   //if there is an error with the connection
-  if (entryData === "error") {
+  if (isError) {
     return <ErrorPopUp />;
   }
 
   //if the data are loaded correctly
   return (
-    //main container for the passwords fields
-    <section className="password-display-container">
-      {/* BUTTONS */}
-      <div className="buttons-container-password">
-        <div className="button">
-          <div>
-            <span onClick={displayNewPassword}>{addNewButton}</span>
-          </div>
+    <PasswordDisplayContext.Provider
+      value={{ addNewButton, classNewPass, setClassNewPass, setAddNewButton }}
+    >
+      <section className="password-display-container">
+        {/* BUTTONS */}
+        <div className="buttons-container-password">
+          <ToggleNewPassword />
         </div>
-        <div className="button">
-          <div>
-            <span>
-              <i className="fa-solid fa-magnifying-glass"></i>
-            </span>
-          </div>
-        </div>
-      </div>
 
-      {/* NEW PASSWORD FORM */}
-      <NewPassword className={classNewPass} />
+        {/* NEW PASSWORD FORM */}
+        <NewPassword className={classNewPass} />
 
-      {/* PASSWORDS LIST */}
-      {entryData.map((entry) => {
-        const { id } = entry;
-        return <PasswordItem entry={entry} key={id} />;
-      })}
-    </section>
+        {/* PASSWORDS LIST */}
+        {data.map((entry) => {
+          const { id } = entry;
+          return <PasswordItem entry={entry} key={id} />;
+        })}
+      </section>
+    </PasswordDisplayContext.Provider>
   );
 };
