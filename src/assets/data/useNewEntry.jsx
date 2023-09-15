@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const url =
-  "https://password-manager-api20230910103433.azurewebsites.net//test/ne";
+  "https://password-manager-api20230910103433.azurewebsites.net//test/new";
 
 export const useNewEntry = () => {
   const [isLoading, setIsLoading] = useState(false);
