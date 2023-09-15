@@ -137,7 +137,7 @@ main {
   }
 }
 
-.error-new-password {
+.success-new-password {
   position: absolute;
   top: 0;
   left: 0;
@@ -150,10 +150,10 @@ main {
   justify-content: center;
   align-items: center;
 }
-.error-new-password div.center-internal {
+.success-new-password div.center-internal {
   text-align: center;
 }
-.error-new-password div.center-internal p {
+.success-new-password div.center-internal p {
   font-family: Montserrat;
   font-size: 25px;
   letter-spacing: 2px;
@@ -204,28 +204,28 @@ main {
     opacity: 1;
   }
 }
-.error-new-password div.center-internal #successAnimationCircle {
+.success-new-password div.center-internal #successAnimationCircle {
   stroke-dasharray: 151px 151px;
   stroke: #fff;
 }
-.error-new-password div.center-internal #successAnimationCheck {
+.success-new-password div.center-internal #successAnimationCheck {
   stroke-dasharray: 36px 36px;
   stroke: #fff;
 }
-.error-new-password div.center-internal #successAnimationResult {
+.success-new-password div.center-internal #successAnimationResult {
   fill: rgb(33, 220, 33);
   opacity: 0;
 }
-.error-new-password div.center-internal #successAnimation.animated {
+.success-new-password div.center-internal #successAnimation.animated {
   animation: 1s ease-out 0s 1 both scaleAnimation;
 }
-.error-new-password div.center-internal #successAnimation.animated #successAnimationCircle {
+.success-new-password div.center-internal #successAnimation.animated #successAnimationCircle {
   animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both drawCircle, 0.3s linear 0.9s 1 both fadeOut;
 }
-.error-new-password div.center-internal #successAnimation.animated #successAnimationCheck {
+.success-new-password div.center-internal #successAnimation.animated #successAnimationCheck {
   animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both drawCheck, 0.3s linear 0.9s 1 both fadeOut;
 }
-.error-new-password div.center-internal #successAnimation.animated #successAnimationResult {
+.success-new-password div.center-internal #successAnimation.animated #successAnimationResult {
   animation: 0.3s linear 0.9s both fadeIn;
 }
 
