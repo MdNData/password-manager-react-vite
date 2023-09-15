@@ -352,6 +352,13 @@ main {
   font-family: Montserrat;
 }
 .password-display-container article .identifier button {
+  display: block;
+  padding: 5px 10px;
+  font-size: 25px;
+  font-weight: 900;
+  font-family: Montserrat;
+  border-radius: 12px;
+  cursor: pointer;
   background-color: rgba(14, 19, 38, 0);
   color: white;
   margin: auto;
@@ -359,7 +366,6 @@ main {
   width: 120px;
   text-align: left;
   margin-top: 10px;
-  cursor: initial;
 }
 .password-display-container article .identifier button i {
   transform: rotate(0deg);
@@ -408,7 +414,19 @@ main {
 .password-display-container article input:disabled {
   color: black;
 }
-.password-display-container button {
+.password-display-container article .password-buttons {
+  display: block;
+  text-align: right;
+  margin-top: -33px;
+}
+.password-display-container article .password-buttons button {
+  background-color: transparent;
+  color: white;
+  font-size: 27px;
+  margin: 0px 15px;
+  cursor: pointer;
+}
+.password-display-container > button {
   display: block;
   margin: 20px auto 0 auto;
   padding: 5px 10px;
@@ -419,7 +437,7 @@ main {
   cursor: pointer;
   background-color: white;
 }
-.password-display-container button:hover {
+.password-display-container > button:hover {
   background-color: #6174be;
   color: white;
 }

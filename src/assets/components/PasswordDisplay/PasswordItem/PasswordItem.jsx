@@ -1,8 +1,12 @@
 import { useState } from "react";
+import { RiDeleteBin2Fill } from "react-icons/ri";
+import { FaEdit } from "react-icons/fa";
+import { useDelete } from "../../../data/useDelete";
 
 export const PasswordItem = ({ entry }) => {
   const { id, email, imgsrc, site, user, pass } = entry;
   const [displayIt, setDisplayIt] = useState(false);
+  const { deleteEntry } = useDelete();
   return (
     <article id={id}>
       <div className="identifier">
@@ -34,6 +38,19 @@ export const PasswordItem = ({ entry }) => {
           Password :
           <input type="text" defaultValue={pass} disabled />
         </p>
+      </div>
+      <div className="password-buttons">
+        <button title="Edit">
+          <FaEdit />
+        </button>
+        <button
+          title="Delete"
+          onClick={() => {
+            deleteEntry({ id: id.toString() });
+          }}
+        >
+          <RiDeleteBin2Fill />
+        </button>
       </div>
     </article>
   );
