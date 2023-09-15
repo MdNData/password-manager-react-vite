@@ -4,7 +4,6 @@ import { PlaceholderPassword } from "./PasswordPlaceholder/PlaceholderPassword";
 import { PasswordItem } from "./PasswordItem/PasswordItem";
 import { NewPassword } from "./NewPassword/NewPassword";
 import useGetAll from "../../data/useGetAll";
-import { ToggleNewPassword } from "./NewPassword/toggleNewPassword";
 
 export const PasswordDisplayContext = createContext();
 
@@ -35,11 +34,6 @@ export const PasswordDisplay = () => {
       value={{ addNewButton, classNewPass, setClassNewPass, setAddNewButton }}
     >
       <section className="password-display-container">
-        {/* BUTTONS */}
-        <div className="buttons-container-password">
-          <ToggleNewPassword />
-        </div>
-
         {/* NEW PASSWORD FORM */}
         <NewPassword reloadGetAll={reloadGetAll} />
 

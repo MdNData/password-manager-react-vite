@@ -433,7 +433,7 @@ main {
   margin: 5px 0 5px 0;
   justify-content: end;
 }
-.password-display-container .buttons-container-password .button div span {
+.password-display-container .buttons-container-password .button div button {
   display: inline-block;
   background-color: white;
   color: #0e1326;
@@ -442,12 +442,13 @@ main {
   font-family: Montserrat;
   font-weight: 900;
   cursor: pointer;
+  font-size: 17px;
 }
-.password-display-container .buttons-container-password .button div span:hover {
+.password-display-container .buttons-container-password .button div button:hover {
   background-color: #0e1326;
   color: white;
 }
-.password-display-container .buttons-container-password .button div span i {
+.password-display-container .buttons-container-password .button div button i {
   font-size: 17px;
   padding: 0 2px;
 }

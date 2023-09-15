@@ -1,6 +1,7 @@
+import { useNewEntry } from "../../../data/useNewEntry";
 import { usePasswordDisplayContext } from "../PasswordDisplay";
 
-export const ToggleNewPassword = () => {
+export const ToggleNewPassword = ({ error }) => {
   const { addNewButton, classNewPass, setAddNewButton, setClassNewPass } =
     usePasswordDisplayContext();
 
@@ -17,7 +18,11 @@ export const ToggleNewPassword = () => {
   return (
     <div className="button">
       <div>
-        <span onClick={toggleNewPassword}>{addNewButton}</span>
+        <span>
+          <button disabled={error} onClick={toggleNewPassword}>
+            {addNewButton}
+          </button>
+        </span>
       </div>
     </div>
   );
