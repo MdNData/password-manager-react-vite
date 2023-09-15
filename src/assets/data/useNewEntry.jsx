@@ -1,11 +1,12 @@
 import { useState } from "react";
 
 const url =
-  "https://password-manager-api20230910103433.azurewebsites.net//test/new";
+  "https://password-manager-api20230910103433.azurewebsites.net//test/ne";
 
 export const useNewEntry = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const send = async (
     data,
@@ -28,6 +29,7 @@ export const useNewEntry = () => {
       if (response.ok) {
         setIsLoading(false);
         setIsSuccess(true);
+        setIsError(false);
         setTimeout(() => {
           setClassNewPass("newPasswordHidden");
           setAddNewButton("+ Add New Entry");
@@ -37,13 +39,13 @@ export const useNewEntry = () => {
         }, 2000);
       } else {
         setIsLoading(false);
-        setIsSuccess(false);
+        setIsError(true);
       }
     } catch (e) {
-      setIsSuccess(false);
       setIsLoading(false);
+      setIsError(true);
     }
   };
 
-  return { isLoading, send, isSuccess };
+  return { isLoading, send, isSuccess, isError };
 };

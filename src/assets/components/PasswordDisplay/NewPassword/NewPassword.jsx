@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Saving from "../Saving/Saving";
 import Success from "../Success/Success";
+import Error from "../Error/Error";
 import { useNewEntry } from "../../../data/useNewEntry";
 import { usePasswordDisplayContext } from "../PasswordDisplay";
 
@@ -14,7 +15,7 @@ export const NewPassword = ({ reloadGetAll }) => {
   const [pass, setPass] = useState("");
 
   //check saving
-  const { isLoading, isSuccess, send } = useNewEntry();
+  const { isLoading, isSuccess, send, isError } = useNewEntry();
 
   const clearEntries = () => {
     setImgLink("");
@@ -111,6 +112,8 @@ export const NewPassword = ({ reloadGetAll }) => {
       {isLoading ? <Saving /> : ""}
 
       {isSuccess ? <Success /> : ""}
+
+      {isError ? <Error /> : ""}
     </article>
   );
 };

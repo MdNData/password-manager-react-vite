@@ -137,7 +137,7 @@ main {
   }
 }
 
-.success-new-password {
+.error-new-password {
   position: absolute;
   top: 0;
   left: 0;
@@ -150,10 +150,10 @@ main {
   justify-content: center;
   align-items: center;
 }
-.success-new-password div.center-internal {
+.error-new-password div.center-internal {
   text-align: center;
 }
-.success-new-password div.center-internal p {
+.error-new-password div.center-internal p {
   font-family: Montserrat;
   font-size: 25px;
   letter-spacing: 2px;
@@ -204,29 +204,122 @@ main {
     opacity: 1;
   }
 }
-.success-new-password div.center-internal #successAnimationCircle {
+.error-new-password div.center-internal #successAnimationCircle {
   stroke-dasharray: 151px 151px;
   stroke: #fff;
 }
-.success-new-password div.center-internal #successAnimationCheck {
+.error-new-password div.center-internal #successAnimationCheck {
   stroke-dasharray: 36px 36px;
   stroke: #fff;
 }
-.success-new-password div.center-internal #successAnimationResult {
+.error-new-password div.center-internal #successAnimationResult {
   fill: rgb(33, 220, 33);
   opacity: 0;
 }
-.success-new-password div.center-internal #successAnimation.animated {
+.error-new-password div.center-internal #successAnimation.animated {
   animation: 1s ease-out 0s 1 both scaleAnimation;
 }
-.success-new-password div.center-internal #successAnimation.animated #successAnimationCircle {
+.error-new-password div.center-internal #successAnimation.animated #successAnimationCircle {
   animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both drawCircle, 0.3s linear 0.9s 1 both fadeOut;
 }
-.success-new-password div.center-internal #successAnimation.animated #successAnimationCheck {
+.error-new-password div.center-internal #successAnimation.animated #successAnimationCheck {
   animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both drawCheck, 0.3s linear 0.9s 1 both fadeOut;
 }
-.success-new-password div.center-internal #successAnimation.animated #successAnimationResult {
+.error-new-password div.center-internal #successAnimation.animated #successAnimationResult {
   animation: 0.3s linear 0.9s both fadeIn;
+}
+
+.error-new-password {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(22, 30, 55, 0.974);
+  border-radius: 8px;
+  box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.303);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.error-new-password div.center-internal {
+  text-align: center;
+}
+.error-new-password div.center-internal p {
+  font-family: Montserrat;
+  font-size: 25px;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: rgb(220, 33, 33);
+}
+.error-new-password div.center-internal .error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 10px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.error-new-password div.center-internal .circle,
+.error-new-password div.center-internal .circle-border {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.error-new-password div.center-internal .circle {
+  z-index: 1;
+  position: relative;
+  background: rgba(22, 30, 55, 0.974);
+  transform: scale(1);
+  animation: success-anim 700ms ease;
+}
+.error-new-password div.center-internal .circle-border {
+  z-index: 0;
+  position: absolute;
+  transform: scale(1.1);
+  animation: circle-anim 400ms ease;
+  background: rgb(220, 33, 33);
+}
+@keyframes success-anim {
+  0% {
+    transform: scale(0);
+  }
+  30% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes circle-anim {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+.error-new-password div.center-internal .error::before,
+.error-new-password div.center-internal .error::after {
+  content: "";
+  display: block;
+  height: 4px;
+  background: rgb(220, 33, 33);
+  position: absolute;
+}
+.error-new-password div.center-internal .error::before {
+  width: 40px;
+  top: 48%;
+  left: 16%;
+  transform: rotateZ(50deg);
+}
+.error-new-password div.center-internal .error::after {
+  width: 40px;
+  top: 48%;
+  left: 16%;
+  transform: rotateZ(-50deg);
 }
 
 .password-display-container {
