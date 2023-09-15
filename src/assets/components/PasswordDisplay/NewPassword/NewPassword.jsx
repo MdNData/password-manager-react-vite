@@ -1,28 +1,20 @@
 import { useState } from "react";
-import { newEntry } from "../../../data/NewEntry";
 import Saving from "../Saving/Saving";
 import Success from "../Success/Success";
+import { useNewEntry } from "../../../data/useNewEntry";
+import { usePasswordDisplayContext } from "../PasswordDisplay";
 
-export const NewPassword = ({ className }) => {
+export const NewPassword = ({ reloadGetAll }) => {
+  const { classNewPass, setClassNewPass, setAddNewButton } =
+    usePasswordDisplayContext();
   //Data to send
-  const [imgLink, setImgLink] = useState(
-    "https://mdndata.github.io/password-manager/static/media/logo.b8ce593d759382a06a27.png"
-  );
-
-  const [site, setSite] = useState("www.password-manager.com");
-
-  const [email, setEmail] = useState("Username");
-
-  const [pass, setPass] = useState("Password");
+  const [imgLink, setImgLink] = useState("");
+  const [site, setSite] = useState("");
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
 
   //check saving
-  const [disableInput, setDisableInput] = useState(false);
-
-  const [saving, setSaving] = useState(false);
-
-  const [error, setError] = useState(false);
-
-  const [success, setSuccess] = useState(false);
+  const { isLoading, isSuccess, send } = useNewEntry();
 
   const clearEntries = () => {
     setImgLink("");
@@ -37,34 +29,38 @@ export const NewPassword = ({ className }) => {
     {
       /* Saving  */
     }
-    if (saving) {
+    if (isLoading && !isSuccess) {
       return;
     } else {
-      setDisableInput(true);
-      setSaving(true);
-      const newEntryData = {
-        email: "test",
-        imgsrc: imgLink,
-        site,
-        user: email,
-        pass,
-      };
-
-      newEntry(newEntryData, setSaving, setError, setSuccess);
+      send(
+        {
+          email: "test",
+          imgsrc: imgLink,
+          site,
+          user: email,
+          pass,
+        },
+        clearEntries,
+        setClassNewPass,
+        setAddNewButton,
+        reloadGetAll
+      );
     }
   };
 
   return (
-    <article className={className}>
+    <article className={classNewPass}>
       <form onSubmit={handleSubmit}>
         <div className="identifier">
           <img src={imgLink} alt="" />
           <p style={{ marginBottom: "20px" }}>
             Image Link :
             <input
-              disabled={disableInput}
               type="text"
-              placeholder={imgLink}
+              placeholder={
+                "https://mdndata.github.io/password-manager/static/media/logo.b8ce593d759382a06a27.png"
+              }
+              value={imgLink}
               onChange={(e) => {
                 setImgLink(e.target.value);
               }}
@@ -74,9 +70,9 @@ export const NewPassword = ({ className }) => {
           <p>
             Usage:
             <input
-              disabled={disableInput}
               type="text"
-              placeholder={site}
+              value={site}
+              placeholder={"www.password-manager.com"}
               onChange={(e) => {
                 setSite(e.target.value);
               }}
@@ -87,9 +83,9 @@ export const NewPassword = ({ className }) => {
           <p>
             User :
             <input
-              disabled={disableInput}
               type="text"
-              placeholder={email}
+              value={email}
+              placeholder={"Username"}
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
@@ -98,9 +94,9 @@ export const NewPassword = ({ className }) => {
           <p>
             Password :
             <input
-              disabled={disableInput}
               type="text"
-              placeholder={pass}
+              value={pass}
+              placeholder={"Password"}
               onChange={(e) => {
                 setPass(e.target.value);
               }}
@@ -112,9 +108,9 @@ export const NewPassword = ({ className }) => {
         </div>
       </form>
 
-      {saving ? <Saving /> : ""}
+      {isLoading ? <Saving /> : ""}
 
-      {success ? <Success /> : ""}
+      {isSuccess ? <Success /> : ""}
     </article>
   );
 };

@@ -9,30 +9,31 @@ const useGetAll = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    const fetchEntries = async () => {
-      try {
-        const response = await fetch(urlAll);
-        let entryList = await response.json();
-        entryList.reverse();
-        if (response.ok) {
-          setData(entryList);
-          setIsLoading(false);
-          setIsError(false);
-        } else {
-          setIsLoading(false);
-          setData("");
-          setIsError(true);
-        }
-      } catch (error) {
-        setIsLoading(false);
-        setIsError(true);
-        setData("");
-      }
-    };
-    fetchEntries();
+    reloadGetAll();
   }, []);
 
-  return { isLoading, isError, data };
+  const reloadGetAll = async () => {
+    try {
+      const response = await fetch(urlAll);
+      let entryList = await response.json();
+      entryList.reverse();
+      if (response.ok) {
+        setData(entryList);
+        setIsLoading(false);
+        setIsError(false);
+      } else {
+        setIsLoading(false);
+        setData("");
+        setIsError(true);
+      }
+    } catch (error) {
+      setIsLoading(false);
+      setIsError(true);
+      setData("");
+    }
+  };
+
+  return { isLoading, isError, data, reloadGetAll };
 };
 
 export default useGetAll;

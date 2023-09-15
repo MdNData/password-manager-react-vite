@@ -17,7 +17,7 @@ export const PasswordDisplay = () => {
   const [addNewButton, setAddNewButton] = useState("+ Add New Entry");
 
   //get data from db manager
-  const { isLoading, isError, data } = useGetAll();
+  const { isLoading, isError, data, reloadGetAll } = useGetAll();
 
   //if the entry data are still not loaded from the db
   if (isLoading) {
@@ -41,7 +41,7 @@ export const PasswordDisplay = () => {
         </div>
 
         {/* NEW PASSWORD FORM */}
-        <NewPassword className={classNewPass} />
+        <NewPassword reloadGetAll={reloadGetAll} />
 
         {/* PASSWORDS LIST */}
         {data.map((entry) => {
