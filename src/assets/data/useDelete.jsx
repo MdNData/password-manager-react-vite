@@ -6,9 +6,10 @@ const url =
 export const useDelete = () => {
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const deleteEntry = async (data) => {
+  const deleteEntry = async (data, setDisplayIt, displayIt) => {
     try {
       setIsDeleting(true);
+      setDisplayIt(!displayIt);
 
       const response = await fetch(url, {
         method: "POST",

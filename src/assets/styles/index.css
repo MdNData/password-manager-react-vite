@@ -414,18 +414,6 @@ main {
 .password-display-container article input:disabled {
   color: black;
 }
-.password-display-container article .password-buttons {
-  display: block;
-  text-align: right;
-  margin-top: -33px;
-}
-.password-display-container article .password-buttons button {
-  background-color: transparent;
-  color: white;
-  font-size: 27px;
-  margin: 0px 15px;
-  cursor: pointer;
-}
 .password-display-container > button {
   display: block;
   margin: 20px auto 0 auto;
@@ -667,6 +655,23 @@ article.newPasswordVisible input {
   font-size: 22px;
   border-radius: 12px;
   font-weight: 900;
+}
+
+.password-buttons {
+  display: block;
+  text-align: right;
+  margin-top: -33px;
+}
+.password-buttons button {
+  background-color: transparent;
+  color: white;
+  font-size: 27px;
+  margin: 0px 15px;
+  cursor: pointer;
+}
+
+.password-buttons.view {
+  margin-top: 20px;
 }
 
 .nav-login-btn a {

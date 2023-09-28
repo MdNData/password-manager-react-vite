@@ -39,14 +39,14 @@ export const PasswordItem = ({ entry }) => {
           <input type="text" defaultValue={pass} disabled />
         </p>
       </div>
-      <div className="password-buttons">
+      <div className={displayIt ? "password-buttons view" : "password-buttons"}>
         <button title="Edit">
           <FaEdit />
         </button>
         <button
           title="Delete"
           onClick={() => {
-            deleteEntry({ id: id.toString() });
+            deleteEntry({ id: id.toString() }, setDisplayIt, displayIt);
           }}
         >
           <RiDeleteBin2Fill />
